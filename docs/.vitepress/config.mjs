@@ -12,6 +12,10 @@ export default defineConfig({
   base: "/weekly/",
   // 源目录
   srcDir: "src",
+  // head
+  head: [
+    ['link', { rel: 'icon', href: 'logo.png' }]
+  ],
   // 公式
   markdown: {
     math: true,
@@ -22,7 +26,7 @@ export default defineConfig({
   },
 
   themeConfig: {
-    logo: '/logo.png',
+    logo: 'logo.png',
 
     // 大纲标题级别
     outline: {

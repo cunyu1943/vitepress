@@ -13,6 +13,9 @@ hero:
     - theme: alt
       text: API Examples
       link: /api-examples
+    - theme: alt
+      text: Github
+      link: https://github.com/cunyu1943/
 
 features:
   - title: Feature A
