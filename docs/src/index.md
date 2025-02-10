@@ -12,7 +12,7 @@ hero:
   actions:
     - theme: brand
       text: 最新年刊
-      link: /2024/0101-0105
+      link: /2025/latest
     - theme: alt
       text: 创刊寄语
       link: /guide
@@ -35,6 +35,9 @@ features:
     icon: 💐
     link: https://yuque.com/cunyu1943
 ---
+
+<Home />
+
 <!-- 
 村雨遥的好物周刊，记录每周看到的有价值的信息，主要针对计算机领域，每周五首发于同名公众号「村雨遥」，专栏目的在于记录让自己有印象的信息做一个备份及分享。
 
