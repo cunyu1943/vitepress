@@ -2,22 +2,75 @@ import { defineConfig } from 'vitepress'
 import { groupIconVitePlugin, groupIconMdPlugin } from 'vitepress-plugin-group-icons'
 import { nav } from './configs/nav'
 import { sidebar } from './configs/sidebar'
+import { AnnouncementPlugin } from 'vitepress-plugin-announcement'
+import { RSSOptions, RssPlugin } from 'vitepress-plugin-rss'
+import { pagefindPlugin } from 'vitepress-plugin-pagefind'
 
-// Teek 主题配置
-
+const baseUrl = 'https://cunyu1943.github.io'
+const RSS: RSSOptions = {
+  title: '村雨遥',
+  baseUrl,
+  copyright: 'Copyright (c) 2025-present, 村雨遥',
+}
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   // 代码组图标
   markdown: {
-    config(md) { 
+    config:(md)=> { 
       md.use(groupIconMdPlugin) //代码组图标
+      md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
+          let htmlResult = slf.renderToken(tokens, idx, options);
+          if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`; 
+          return htmlResult;
+      }
     },
   },
 
   vite: { 
     plugins: [
-      groupIconVitePlugin() //代码组图标
+      // 离线全文搜索
+      pagefindPlugin(),
+       // RSS
+      RssPlugin(RSS),
+      //代码组图标
+      groupIconVitePlugin(), 
+      // 公告
+      AnnouncementPlugin({
+        title: '公告',
+        body: [
+          { type: 'text', content: '👇 微信 👇<------->👇 公众号 👇' },
+          {
+            type: 'image',
+            src: 'imgs/contact/wechat.jpg',
+            style: 'display: inline-block;width:46%;padding-right:6px'
+          },
+          { 
+            type: 'image',
+            src: 'imgs/contact/wepublic.jpg',
+            style: 'display: inline-block;width:46%;padding-left:6px'
+          }
+        ],
+        footer: [
+          {
+            type: 'text',
+            content: '还可以通过这里找到我'
+          },
+          {
+            type: 'button',
+            content: '数字花园',
+            link: 'https://yuque.com/cunyu1943'
+          },
+          {
+            type: 'button',
+            content: 'ima知识库',
+            link: 'https://ima.qq.com/wiki/?shareId=2d93931f9ba4bdf4d9d25cb112b5f17451e9367d2dbb4f63fb9a32575899b73c',
+            props: {
+              type: 'success'
+            }
+          },
+        ],
+      })
     ],
   },
 
@@ -50,10 +103,8 @@ export default defineConfig({
 
     // 页脚
     footer: { 
-      message: 'Released under the MIT License.', 
-      copyright: 'Copyright © 2025-${new Date().getFullYear()} present cunyu1943', 
-      // 自动更新时间
-      //copyright: `Copyright © 2019- present Evan You`, 
+      // message: 'Released under the MIT License.', 
+      copyright: 'Copyright © 2025-'+ new Date().getFullYear()  +'  present cunyu1943', 
     }, 
 
     //上次更新时间
@@ -61,7 +112,7 @@ export default defineConfig({
       text: '最后更新于',
       formatOptions: {
         dateStyle: 'full', // 可选值full、long、medium、short
-        timeStyle: 'full' // 可选值full、long、medium、short
+        timeStyle: 'medium' // 可选值full、long、medium、short
       },
     },
 

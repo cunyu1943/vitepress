@@ -13,6 +13,10 @@
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
-    "cn-fontsource-lxgw-wen-kai-screen": "^1.0.6"
+    "cn-fontsource-lxgw-wen-kai-screen": "^1.0.6",
+    "pagefind": "^1.5.2",
+    "vitepress-plugin-announcement": "^0.1.8",
+    "vitepress-plugin-pagefind": "^0.4.20",
+    "vitepress-plugin-rss": "^0.4.4"
   }
 }

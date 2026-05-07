@@ -14,7 +14,7 @@ import HomeUnderline from './components/HomeUnderline.vue'
 import DataPanel from "./components/DataPanel.vue"
 import { inBrowser } from 'vitepress'
 import busuanzi from 'busuanzi.pure.js'
-
+import ArticleMetadata from "./components/ArticleMetadata.vue"
 
 export default {
     extends: DefaultTheme,
@@ -22,7 +22,8 @@ export default {
     enhanceApp({ app,router }) {
         // 注册全局组件
         app.component('HomeUnderline', HomeUnderline),
-        app.component('DataPanel', DataPanel)
+        app.component('DataPanel', DataPanel), 
+        app.component('ArticleMetadata', ArticleMetadata)
         if (inBrowser) {
             router.onAfterRouteChanged = () => {
                 busuanzi.fetch()

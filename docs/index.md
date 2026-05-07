@@ -5,6 +5,9 @@ layout: home
 hero:
   name: "村雨遥"
   text: "A VitePress Site"
+  image:
+    # src: contact/contact.png # 
+    src: imgs/site/logo.png
   tagline: My great project tagline
   actions:
     - theme: brand
