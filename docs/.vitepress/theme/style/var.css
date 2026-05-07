@@ -1,5 +1,11 @@
 /* var.css */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/cn-fontsource-lxgw-wen-kai-screen@1.0.6/font.min.css');
+
 :root {
+  --vp-font-family-sans: 'LXGW WenKai Screen', 'Noto Serif SC', 'Noto Serif CJK SC', 'Source Han Serif SC', serif;
+  --vp-font-family-serif: 'LXGW WenKai Screen', 'Noto Serif SC', 'Noto Serif CJK SC', 'Source Han Serif SC', serif;
+  --vp-font-family-mono: 'LXGW WenKai Screen', 'Noto Serif SC', 'Noto Serif CJK SC', monospace;
   --vp-c-brand-1: #18794e;
   --vp-c-brand-2: #299764;
   --vp-c-brand-3: #30a46c;
@@ -10,6 +16,7 @@
   --vp-c-brand-2: #30a46c;
   --vp-c-brand-3: #298459;
 }
+
 /* 以前的vp-c-brand已弃用 */
 
 :root {
@@ -22,8 +29,32 @@
   --vp-home-hero-image-filter: blur(40px);
 }
 
+/* 强制应用字体到所有元素 */
+html,
+body,
+#app,
+.VPContent,
+.VPDoc,
+.VPDocFooter {
+  font-family: 'LXGW WenKai Screen', 'Noto Serif SC', 'Noto Serif CJK SC', 'Source Han Serif SC', serif !important;
+}
 
-VPFeatures 页卡悬浮效果
+/* 标题和其他文本元素 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+span,
+div,
+a {
+  font-family: 'LXGW WenKai Screen', 'Noto Serif SC', 'Noto Serif CJK SC', 'Source Han Serif SC', serif !important;
+}
+
+/* VPFeatures 页卡悬浮效果 */
 .VPFeatures .items .item {
   transition: transform 0.3s;
 }
@@ -31,6 +62,7 @@ VPFeatures 页卡悬浮效果
 .VPFeatures .items .item:hover {
   transform: translateY(-5px);
 }
+
 /* VPDoc 文档一级标题渐变色 */
 .VPDoc h1 {
   background: -webkit-linear-gradient(10deg, #bd34fe 5%, #e43498 15%);
