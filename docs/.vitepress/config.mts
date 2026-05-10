@@ -5,6 +5,9 @@ import { sidebar } from './configs/sidebar'
 import { AnnouncementPlugin } from 'vitepress-plugin-announcement'
 import { RSSOptions, RssPlugin } from 'vitepress-plugin-rss'
 import { pagefindPlugin } from 'vitepress-plugin-pagefind'
+import { GitChangelog, GitChangelogMarkdownSection, } from '@nolebase/vitepress-plugin-git-changelog/vite'
+import { SponsorPlugin } from 'vitepress-plugin-sponsor'
+
 
 const baseUrl = 'https://cunyu1943.github.io'
 const RSS: RSSOptions = {
@@ -17,24 +20,40 @@ const RSS: RSSOptions = {
 export default defineConfig({
   // 代码组图标
   markdown: {
-    config:(md)=> { 
+    config: (md) => {
       md.use(groupIconMdPlugin) //代码组图标
       md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
-          let htmlResult = slf.renderToken(tokens, idx, options);
-          if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`; 
-          return htmlResult;
+        let htmlResult = slf.renderToken(tokens, idx, options);
+        if (tokens[idx].tag === 'h1') htmlResult += `<ArticleMetadata />`;
+        return htmlResult;
       }
     },
   },
 
-  vite: { 
+  vite: {
     plugins: [
+
+      // 打赏插件
+      SponsorPlugin({
+        /**
+         * 打赏模块样式
+         */
+        type: 'simple',
+        aliPayQR: 'imgs/contact/wechat.jpg',
+        weChatQR: 'imgs/contact/wechat.jpg'
+      }),
+      // 基于 Git
+      GitChangelog({
+        // 填写在此处填写您的仓库链接
+        repoURL: () => 'https://github.com/cunyu1943/weekly',
+      }),
+      GitChangelogMarkdownSection(),
       // 离线全文搜索
       pagefindPlugin(),
-       // RSS
+      // RSS
       RssPlugin(RSS),
       //代码组图标
-      groupIconVitePlugin(), 
+      groupIconVitePlugin(),
       // 公告
       AnnouncementPlugin({
         title: '公告',
@@ -45,7 +64,7 @@ export default defineConfig({
             src: 'imgs/contact/wechat.jpg',
             style: 'display: inline-block;width:46%;padding-right:6px'
           },
-          { 
+          {
             type: 'image',
             src: 'imgs/contact/wepublic.jpg',
             style: 'display: inline-block;width:46%;padding-left:6px'
@@ -102,10 +121,10 @@ export default defineConfig({
     siteTitle: false,
 
     // 页脚
-    footer: { 
+    footer: {
       // message: 'Released under the MIT License.', 
-      copyright: 'Copyright © 2025-'+ new Date().getFullYear()  +'  present cunyu1943', 
-    }, 
+      copyright: 'Copyright © 2025-' + new Date().getFullYear() + '  present cunyu1943',
+    },
 
     //上次更新时间
     lastUpdated: {
@@ -117,25 +136,25 @@ export default defineConfig({
     },
 
     //自定义上下页名
-    docFooter: { 
-      prev: '上一页', 
-      next: '下一页', 
-    }, 
+    docFooter: {
+      prev: '上一页',
+      next: '下一页',
+    },
 
     // 侧边栏文字更改(移动端)
     sidebarMenuLabel: '目录',
-    
+
     //返回顶部文字修改
-    returnToTopLabel:'返回顶部', 
+    returnToTopLabel: '返回顶部',
     // 大纲
-    outline: { 
-      level: [2,3], // 显示2-4级标题
+    outline: {
+      level: [2, 3], // 显示2-4级标题
       // level: 'deep', // 显示2-6级标题
       label: '大纲' // 文字显示
     },
 
     //编辑本页
-    editLink: { 
+    editLink: {
       pattern: 'https://github.com/cunyu1943/weekly/edit/main/docs/:path', // 改成自己的仓库
       text: '我要纠错'
     },

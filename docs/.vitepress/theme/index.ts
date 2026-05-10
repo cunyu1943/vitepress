@@ -15,6 +15,9 @@ import DataPanel from "./components/DataPanel.vue"
 import { inBrowser } from 'vitepress'
 import busuanzi from 'busuanzi.pure.js'
 import ArticleMetadata from "./components/ArticleMetadata.vue"
+import { NolebaseGitChangelogPlugin } from '@nolebase/vitepress-plugin-git-changelog/client'
+import '@nolebase/vitepress-plugin-git-changelog/client/style.css'
+
 
 export default {
     extends: DefaultTheme,
@@ -23,7 +26,8 @@ export default {
         // 注册全局组件
         app.component('HomeUnderline', HomeUnderline),
         app.component('DataPanel', DataPanel), 
-        app.component('ArticleMetadata', ArticleMetadata)
+        app.component('ArticleMetadata', ArticleMetadata),
+        app.use(NolebaseGitChangelogPlugin)
         if (inBrowser) {
             router.onAfterRouteChanged = () => {
                 busuanzi.fetch()
