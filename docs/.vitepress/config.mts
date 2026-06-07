@@ -39,8 +39,8 @@ export default defineConfig({
          * 打赏模块样式
          */
         type: 'simple',
-        aliPayQR: 'imgs/contact/wechat.jpg',
-        weChatQR: 'imgs/contact/wechat.jpg'
+        aliPayQR: 'imgs/award/alipay.jpg',
+        weChatQR: 'imgs/award/wechatpay.jpg'
       }),
       // 基于 Git
       GitChangelog({
