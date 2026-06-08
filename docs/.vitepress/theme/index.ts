@@ -17,17 +17,26 @@ import busuanzi from 'busuanzi.pure.js'
 import ArticleMetadata from "./components/ArticleMetadata.vue"
 import { NolebaseGitChangelogPlugin } from '@nolebase/vitepress-plugin-git-changelog/client'
 import '@nolebase/vitepress-plugin-git-changelog/client/style.css'
-
+import notice from "./components/notice.vue";
+import { h } from 'vue' // h函数
 
 export default {
     extends: DefaultTheme,
     // ...DefaultTheme, //或者这样写也可
-    enhanceApp({ app,router }) {
+    Layout() {
+        return h(DefaultTheme.Layout, null, {
+
+            // 指定组件使用layout-top插槽
+            'layout-top': () => h(notice),
+
+        })
+    },
+    enhanceApp({ app, router }) {
         // 注册全局组件
         app.component('HomeUnderline', HomeUnderline),
-        app.component('DataPanel', DataPanel), 
-        app.component('ArticleMetadata', ArticleMetadata),
-        app.use(NolebaseGitChangelogPlugin)
+            app.component('DataPanel', DataPanel),
+            app.component('ArticleMetadata', ArticleMetadata),
+            app.use(NolebaseGitChangelogPlugin)
         if (inBrowser) {
             router.onAfterRouteChanged = () => {
                 busuanzi.fetch()

@@ -101,6 +101,10 @@ export default defineConfig({
   cleanUrls: true,
   // 预演
   lang: 'zh-CN',
+    // 源目录
+  srcDir: "src",
+  // 仓库名
+  // base: "/weekly/",
   // 深色主题
   appearance: 'dark',
   // 忽略死链
