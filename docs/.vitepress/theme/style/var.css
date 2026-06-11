@@ -1,11 +1,11 @@
 /* var.css */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap');
-@import url('https://cdn.jsdelivr.net/npm/cn-fontsource-lxgw-wen-kai-screen@1.0.6/font.min.css');
+@import url('https://cdn.jsdelivr.net/npm/cn-fontsource-lxgw-wen-kai-gb-screen-r@1.0.6/font.min.css');
 
 :root {
-  --vp-font-family-sans: 'LXGW WenKai Screen', 'Noto Serif SC', 'Noto Serif CJK SC', 'Source Han Serif SC', serif;
-  --vp-font-family-serif: 'LXGW WenKai Screen', 'Noto Serif SC', 'Noto Serif CJK SC', 'Source Han Serif SC', serif;
-  --vp-font-family-mono: 'LXGW WenKai Screen', 'Noto Serif SC', 'Noto Serif CJK SC', monospace;
+  --vp-font-family-sans: 'LXGW WenKai GB Screen R', 'Noto Serif SC', 'Noto Serif CJK SC', 'Source Han Serif SC', serif;
+  --vp-font-family-serif: 'LXGW WenKai GB Screen R', 'Noto Serif SC', 'Noto Serif CJK SC', 'Source Han Serif SC', serif;
+  --vp-font-family-mono: 'LXGW WenKai GB Screen R', 'Noto Serif SC', 'Noto Serif CJK SC', monospace;
   --vp-c-brand-1: #18794e;
   --vp-c-brand-2: #299764;
   --vp-c-brand-3: #30a46c;
@@ -36,7 +36,7 @@ body,
 .VPContent,
 .VPDoc,
 .VPDocFooter {
-  font-family: 'LXGW WenKai Screen', 'Noto Serif SC', 'Noto Serif CJK SC', 'Source Han Serif SC', serif !important;
+  font-family: 'LXGW WenKai GB Screen R', 'Noto Serif SC', 'Noto Serif CJK SC', 'Source Han Serif SC', serif !important;
 }
 
 /* 标题和其他文本元素 */
@@ -51,7 +51,7 @@ li,
 span,
 div,
 a {
-  font-family: 'LXGW WenKai Screen', 'Noto Serif SC', 'Noto Serif CJK SC', 'Source Han Serif SC', serif !important;
+  font-family: 'LXGW WenKai GB Screen R', 'Noto Serif SC', 'Noto Serif CJK SC', 'Source Han Serif SC', serif !important;
 }
 
 /* VPFeatures 页卡悬浮效果 */
