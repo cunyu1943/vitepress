@@ -5,7 +5,7 @@
     "sass-embedded": "^1.100.0",
     "vitepress": "^1.6.4",
     "vitepress-plugin-group-icons": "^1.7.5",
-    "vue": "^3.5.35"
+    "vue": "^3.5.40"
   },
   "packageManager": "pnpm@10.3.0+sha256.24dd5c65d86c7d0710aba16699fbc46d74fc9acf2b419f4945207f2de9e57e23",
   "type": "module",
@@ -18,7 +18,6 @@
     "cn-fontsource-lxgw-wen-kai-screen": "^1.0.6",
     "pagefind": "^1.5.2",
     "vitepress-plugin-announcement": "^0.1.9",
-    "vitepress-plugin-pagefind": "^0.4.20",
     "vitepress-plugin-rss": "^0.4.4",
     "vitepress-plugin-sponsor": "^0.2.0"
   }

@@ -4,7 +4,7 @@ import { nav } from './configs/nav'
 import { sidebar } from './configs/sidebar'
 import { AnnouncementPlugin } from 'vitepress-plugin-announcement'
 import { RSSOptions, RssPlugin } from 'vitepress-plugin-rss'
-import { pagefindPlugin } from 'vitepress-plugin-pagefind'
+// import { pagefindPlugin } from 'vitepress-plugin-pagefind'
 import { GitChangelog, GitChangelogMarkdownSection, } from '@nolebase/vitepress-plugin-git-changelog/vite'
 import { SponsorPlugin } from 'vitepress-plugin-sponsor'
 
@@ -48,8 +48,8 @@ export default defineConfig({
         repoURL: () => 'https://github.com/cunyu1943/weekly',
       }),
       GitChangelogMarkdownSection(),
-      // 离线全文搜索
-      pagefindPlugin(),
+      // 离线全文搜索（暂注释，插件存在兼容性问题）
+      // pagefindPlugin(),
       // RSS
       RssPlugin(RSS),
       //代码组图标
@@ -101,7 +101,7 @@ export default defineConfig({
   cleanUrls: true,
   // 预演
   lang: 'zh-CN',
-    // 源目录
+  // 源目录
   srcDir: "src",
   // 仓库名
   // base: "/weekly/",
