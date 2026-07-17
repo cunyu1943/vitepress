@@ -18,6 +18,7 @@ import ArticleMetadata from "./components/ArticleMetadata.vue"
 import { NolebaseGitChangelogPlugin } from '@nolebase/vitepress-plugin-git-changelog/client'
 import '@nolebase/vitepress-plugin-git-changelog/client/style.css'
 import notice from "./components/notice.vue";
+import DocBefore from "./components/DocBefore.vue";
 import { h } from 'vue' // h函数
 
 export default {
@@ -28,6 +29,9 @@ export default {
 
             // 指定组件使用layout-top插槽
             'layout-top': () => h(notice),
+
+            // 指定组件使用doc-before插槽（文档内容前显示）
+            'doc-before': () => h(DocBefore),
 
         })
     },
