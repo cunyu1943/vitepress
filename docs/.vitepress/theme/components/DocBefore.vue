@@ -8,9 +8,10 @@
   <div class="doc-before">
     <!-- 在此自定义你的内容，例如：公告、版权声明、广告、提示信息等 -->
     <p>
-      📌 此处为 doc-before 插槽自定义内容，请编辑 DocBefore.vue 修改
-      1.
-      <a href="https://github.com/cunyu1943">cunyu1943</a>
+      📱 1. <a href="https://ym.ksjhaoka.com/?s=Ltxbbs9W330131">官方正规大流量卡</a>
+    </p>
+    <p>
+      ⛩️ 2. <a href="https://xn--mesr8b36x.cc/#/register?code=KhWkEeC9">科学上网学习</a>
     </p>
   </div>
 </template>

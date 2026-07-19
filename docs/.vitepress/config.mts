@@ -13,7 +13,7 @@ const baseUrl = 'https://cunyu1943.github.io'
 const RSS: RSSOptions = {
   title: '村雨遥',
   baseUrl,
-  copyright: 'Copyright (c) 2025-present, 村雨遥',
+  copyright: 'Copyright © ' + new Date().getFullYear() + '<a href="https://github.com/cunyu1943">村雨遥</a>',
 }
 
 // https://vitepress.dev/reference/site-config
@@ -39,8 +39,8 @@ export default defineConfig({
          * 打赏模块样式
          */
         type: 'simple',
-        aliPayQR: 'imgs/award/alipay.jpg',
-        weChatQR: 'imgs/award/wechatpay.jpg'
+        aliPayQR: '/imgs/award/alipay.jpg',
+        weChatQR: '/imgs/award/wechatpay.jpg'
       }),
       // 基于 Git
       GitChangelog({
@@ -61,7 +61,7 @@ export default defineConfig({
           { type: 'text', content: '👇 微信 👇<------->👇 公众号 👇' },
           {
             type: 'image',
-            src: 'imgs/contact/wechat.jpg',
+            src: '/imgs/contact/wechat.jpg',
             style: 'display: inline-block;width:46%;padding-right:6px'
           },
           {
@@ -94,7 +94,7 @@ export default defineConfig({
   },
 
   // 站点名
-  title: "模板",
+  title: "村雨遥",
   // 站点描述
   description: "A VitePress Site",
   // 纯净链接
@@ -127,7 +127,7 @@ export default defineConfig({
     // 页脚
     footer: {
       // message: 'Released under the MIT License.', 
-      copyright: 'Copyright © 2025-' + new Date().getFullYear() + '  present cunyu1943',
+      copyright: 'Copyright © ' + new Date().getFullYear() + '<a href="https://github.com/cunyu1943">村雨遥</a>',
     },
 
     //上次更新时间
