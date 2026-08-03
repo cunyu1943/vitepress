@@ -163,7 +163,7 @@ export default defineConfig({
 
     //编辑本页
     editLink: {
-      pattern: 'https://github.com/cunyu1943' + baseRepo + 'edit/main/docs/:path', // 改成自己的仓库
+      pattern: 'https://github.com/cunyu1943' + baseRepo + 'edit/main/docs/src/:path', // 改成自己的仓库
       text: '我要纠错'
     },
     // 导航栏
