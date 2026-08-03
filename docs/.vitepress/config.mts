@@ -7,12 +7,12 @@ import { RSSOptions, RssPlugin } from 'vitepress-plugin-rss'
 import { GitChangelog, GitChangelogMarkdownSection, } from '@nolebase/vitepress-plugin-git-changelog/vite'
 import { SponsorPlugin } from 'vitepress-plugin-sponsor'
 
-const baseRepo = '/weekly/'
+const baseRepo = '//'
 const baseUrl = 'https://cunyu1943.github.io'
 const RSS: RSSOptions = {
   title: '村雨遥',
   baseUrl,
-  copyright: 'Copyright © ' + new Date().getFullYear() + '<a href="https://github.com/cunyu1943">村雨遥</a>',
+  copyright: 'Copyright © ' + new Date().getFullYear() + ' <a href="https://github.com/cunyu1943">村雨遥</a>',
 }
 
 // https://vitepress.dev/reference/site-config
@@ -49,7 +49,7 @@ export default defineConfig({
       // 基于 Git
       GitChangelog({
         // 填写在此处填写您的仓库链接
-        repoURL: () => 'https://github.com/cunyu1943/weekly',
+        repoURL: () => 'https://github.com/cunyu1943' + baseRepo,
       }),
       GitChangelogMarkdownSection(),
       // 离线全文搜索（暂注释，插件存在兼容性问题）
@@ -115,7 +115,7 @@ export default defineConfig({
   ignoreDeadLinks: false,
   // 站点地图
   sitemap: {
-    hostname: 'https://cunyu1943.github.io',
+    hostname: baseUrl,
   },
   lastUpdated: true,
 
@@ -131,7 +131,7 @@ export default defineConfig({
     // 页脚
     footer: {
       // message: 'Released under the MIT License.', 
-      copyright: 'Copyright © ' + new Date().getFullYear() + '<a href="https://github.com/cunyu1943">村雨遥</a>',
+      copyright: 'Copyright © ' + new Date().getFullYear() + ' <a href="https://github.com/cunyu1943">村雨遥</a>',
     },
 
     //上次更新时间
@@ -163,7 +163,7 @@ export default defineConfig({
 
     //编辑本页
     editLink: {
-      pattern: 'https://github.com/cunyu1943/weekly/edit/main/docs/:path', // 改成自己的仓库
+      pattern: 'https://github.com/cunyu1943' + baseRepo + 'edit/main/docs/:path', // 改成自己的仓库
       text: '我要纠错'
     },
     // 导航栏
