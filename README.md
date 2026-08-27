@@ -13,7 +13,7 @@
 - **文章元信息** — 自动显示更新日期、字数统计、预估阅读时长
 - **代码组图标** — `vitepress-plugin-group-icons` 为代码块添加语言图标
 - **自定义样式** — 引用块、代码块、侧边栏图标、模糊隐藏、标记高亮等多套自定义样式
-- **霞鹜文楷字体** — 全站使用 LXGW WenKai GB Screen R 字体
+- **霞鹜文楷字体** — 全站使用 LXGW WenKai GB Screen R 字体(可选)
 - **Hero 下划线动画** — 首页标题带 SVG 下划线装饰
 - **暗色主题** — 默认启用深色模式
 - **GitHub Pages 自动部署** — 配置了 GitHub Actions 工作流，推送到 `main` 分支自动构建部署
@@ -131,7 +131,29 @@ export default defineConfig({
 
 ## 部署
 
-项目已配置 GitHub Actions 自动部署工作流（[.github/workflows/auto-deploy.yml](.github/workflows/auto-deploy.yml)），推送到 `main` 分支即可自动构建并部署到 GitHub Pages。
+项目已配置 GitHub Actions 自动部署工作流（[.github/workflows/auto-deploy.yml](.github/workflows/auto-deploy.yml)），**推送到 `main` 分支即可自动构建并部署到 GitHub Pages**。
+
+### 工作流依赖（已更新至最新版本）
+
+| Action | 版本 |
+|--------|------|
+| `actions/checkout` | v7.0.1 |
+| `actions/setup-node` | v7.0.0 |
+| `actions/configure-pages` | v6.0.0 |
+| `actions/upload-pages-artifact` | v5.0.0 |
+| `actions/deploy-pages` | v5.0.0 |
+
+> 依赖通过 Corepack 自动安装 `package.json` 中 `packageManager` 锁定的 pnpm 版本（当前 `pnpm@10.3.0`），无需手动指定。
+
+### 首次启用步骤
+
+1. 将本仓库推送到 **GitHub**（注意：当前 `origin` 默认指向 GitCode，GitHub Pages 只能由 GitHub 仓库触发，请确保代码已推到目标 GitHub 仓库，如 `github.com/cunyu1943/vitpress`）。
+2. 进入仓库 **Settings → Pages → Build and deployment → Source**，选择 **GitHub Actions**。
+3. 推送/合并到 `main` 分支，Actions 会自动执行构建并发布；部署完成后站点地址为 `https://<user>.github.io/<repo>/`。
+
+### ⚠️ 关于 `base` 路径
+
+部署到子路径时，`docs/.vitepress/config.mts` 中的 `base` 必须匹配仓库名（以 `/` 开头、以 `/` 结尾）。当前已按仓库名 `vitpress` 设为 `/vitpress/`；若你的 GitHub 仓库名不同，或使用的是 `<user>.github.io` 用户主页仓库，请相应修改该值（用户主页仓库请改为 `/`）。
 
 如需手动部署，请参考 [VitePress 部署文档](https://vitepress.dev/guide/deploy)。
 
