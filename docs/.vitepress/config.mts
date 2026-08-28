@@ -9,10 +9,11 @@ import { SponsorPlugin } from 'vitepress-plugin-sponsor'
 
 // 站点基础路径（GitHub Pages 部署在子目录时需要，根域名部署则为 '/'）
 // 规则：必须以 '/' 开头、以 '/' 结尾。
-// 若部署到 https://<user>.github.io/<repo>/ ，则填 '/<repo>/'（例如仓库名为 vitpress 时填 '/vitpress/'）
+// 若部署到 https://<user>.github.io/<repo>/ ，则填 '/<repo>/'（例如仓库名为 vitepress 时填 '/vitepress/'）
 // 若为 <user>.github.io 这个保留仓库（用户主页站点），则填 '/'
 // ⚠️ 原值 '//' 非法，会导致部署后资源 404，已修正。
-const baseRepo = '/vitpress/'
+// 注意：必须与 GitHub 仓库名一致
+const baseRepo = '/vitepress/'
 const baseUrl = 'https://cunyu1943.github.io'
 const RSS: RSSOptions = {
   title: '村雨遥',

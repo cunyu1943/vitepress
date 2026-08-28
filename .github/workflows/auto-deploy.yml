@@ -10,20 +10,13 @@ on:
   # 允许从 Actions 选项卡手动触发
   workflow_dispatch:
 
-# 设置 GITHUB_TOKEN 权限，允许部署到 GitHub Pages
+# 设置 GITHUB_TOKEN 权限，允许推送 gh-pages 分支
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# 同一时间只允许一个部署，避免并发覆盖
-concurrency:
-  group: pages
-  cancel-in-progress: false
+  contents: write
 
 jobs:
-  # 构建任务
-  build:
+  # 构建并部署到 gh-pages 分支
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout
@@ -38,12 +31,9 @@ jobs:
       - name: 🟢 Setup Node
         uses: actions/setup-node@v7.0.0
         with:
-          node-version: 20
+          node-version: latest
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
-
-      - name: ⚙️ Setup Pages
-        uses: actions/configure-pages@v6.0.0
 
       - name: 📦 Install dependencies
         run: pnpm install --frozen-lockfile
@@ -51,20 +41,10 @@ jobs:
       - name: 🏗️ Build with VitePress
         run: pnpm docs:build
 
-      - name: ⬆️ Upload artifact
-        uses: actions/upload-pages-artifact@v5.0.0
+      - name: 🚀 Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: docs/.vitepress/dist
-
-  # 部署任务
-  deploy:
-    needs: build
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
-      - name: 🎉 Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5.0.0
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/.vitepress/dist
+          publish_branch: gh-pages
+          force_orphan: true # 每次重建干净的 gh-pages 分支，避免历史膨胀
